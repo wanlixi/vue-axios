@@ -167,7 +167,9 @@ onDownloadProgress:function(progressEvent){
 ```
 =====================================2017-11-21===================================
 
+### fetch.js
 ```
+import axios from 'axios'
 // 对axios二次封装
 const fetch = (url, method = 'get', data) => {
     return new Promise((resolve, reject) => {
@@ -184,8 +186,19 @@ const fetch = (url, method = 'get', data) => {
 }
 export deafult fetch;
 ```
+### main.js
+```
+import fetch from './api/fetch.js'
+import Vue from 'vue'
 
-
+Vue.prototype.$fetch = fetch;
+```
+### api.js
+```
+export default {
+  getUserInfo: userId => fetch('/userInfo')
+}
+```
 
 
 
