@@ -165,9 +165,25 @@ onDownloadProgress:function(progressEvent){
   })
 }
 ```
+=====================================2017-11-21===================================
 
-
-
+```
+// 对axios二次封装
+const fetch = (url, method = 'get', data) => {
+    return new Promise((resolve, reject) => {
+        axios({url, method: method, data})
+            .then(response => {
+                resolve(response.data);
+            }, err => {
+                reject(err);    
+            })
+            .catch((error) => {
+               reject(error)
+            })
+    })
+}
+export deafult fetch;
+```
 
 
 
