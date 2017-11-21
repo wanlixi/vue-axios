@@ -171,7 +171,7 @@ onDownloadProgress:function(progressEvent){
 // 对axios二次封装
 const fetch = (url, method = 'get', data) => {
     return new Promise((resolve, reject) => {
-        axios({url, method: method, data})
+        axios({url, method, data})
             .then(response => {
                 resolve(response.data);
             }, err => {
